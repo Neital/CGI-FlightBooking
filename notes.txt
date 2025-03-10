@@ -1,0 +1,22 @@
+So apparently everything was fine and the only issue was with me not understanding docker.
+Here are the important steps:
+
+docker exec -it flight_booking_db bash
+psql -U flight_user -d flight_booking
+\dt
+
+result:
+              List of relations
+ Schema |     Name      | Type  |    Owner
+--------+---------------+-------+-------------
+ public | airport       | table | flight_user
+ public | flight        | table | flight_user
+ public | plane         | table | flight_user
+ public | seat          | table | flight_user
+ public | seat_features | table | flight_user
+ public | seat_prices   | table | flight_user
+ public | test_entity   | table | flight_user
+(7 rows)
+
+I should probably disable docker while I work on backend :^
+(10/3/2025 12:43PM)

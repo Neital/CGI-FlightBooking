@@ -1,11 +1,18 @@
+version: '3.8'
+
 services:
   postgres:
-    image: 'postgres:latest'
-    container_name: 'flight_booking_db'
-    restart: 'always'
+    image: postgres:13
+    container_name: postgres_container
     environment:
-      - 'POSTGRES_DB=flight_booking'
-      - 'POSTGRES_PASSWORD=CGIPraktika'
-      - 'POSTGRES_USER=flight_user'
+      POSTGRES_DB: flight_booking
+      POSTGRES_USER: flight_user
+      POSTGRES_PASSWORD: CGIPraktika
     ports:
-      - '5432'
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
